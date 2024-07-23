@@ -15,3 +15,6 @@ Pylance
 >
 > > > quit()
 > > > test
+
+For comments
+ctrl + /
