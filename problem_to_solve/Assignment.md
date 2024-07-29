@@ -6,3 +6,5 @@ P5. Use the Input to find the average.
 
 P6. Create a 2 time (tables)
 P7. Create a square root or cube of a number.
+P8. Take 5 input find the percentage and apply a condition if you passed or failed and grade them. (< 50 is fail, < 60 is C, < 70 B, < 80 A, Rest A+ )
+P9. Take an input string from a user and check if a word is part of that input. if then display word found or not found.
