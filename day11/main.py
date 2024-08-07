@@ -33,7 +33,7 @@ else:
     else:
         print("something went wrong")
 
-
+# https://www.geeksforgeeks.org/snake-water-gun-game-using-python/
 """
 import random
 
