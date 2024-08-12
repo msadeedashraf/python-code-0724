@@ -36,3 +36,15 @@ Day 03:
 Data Types
 Operators
 variable rules
+
+Flask Documentation
+https://flask.palletsprojects.com/en/1.1.x/quickstart/
+
+https://www.geeksforgeeks.org/how-to-install-flask-in-windows/
+Installing Flask on windows
+
+>pip install virtualenv
+>pip install flask
+
+create a root folder and run
+>virtualenv venv
