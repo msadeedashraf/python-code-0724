@@ -74,3 +74,6 @@ save and run
 [To install SQL](https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/)
 
 >pip install flask-sqlalchemy
+
+SQL Lite viewer
+https://inloop.github.io/sqlite-viewer/

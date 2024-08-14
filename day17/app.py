@@ -17,9 +17,12 @@ class Todolist(db.Model):
     desc = db.Column(db.String(500), nullable=True)
     creation_date = db.Column(db.DateTime, default=datetime.utcnow)
 
+    def __repr__(self) -> str:
+        return f"{self.taskid} - {self.task}"
 
-def __repr__(self) -> str:
-    return f"{self.taskid} - {self.task}"
+
+with app.app_context():
+    db.create_all()
 
 
 @app.route("/")
