@@ -71,4 +71,6 @@ if __name__ == "__main__":
 save and run 
 >python .\app.py
 
+[To install SQL](https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/)
 
+>pip install flask-sqlalchemy
