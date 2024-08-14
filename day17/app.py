@@ -1,14 +1,24 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy  # ORM
 from datetime import datetime
+from sqlalchemy import Integer, String
+from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import DeclarativeBase
 
+
+class Base(DeclarativeBase):
+    pass
+
+
+db = SQLAlchemy(model_class=Base)
 
 # create the app
 app = Flask(__name__)
 # configure the SQLite database, relative to the app instance folder
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///todolist.db"
+
 # initialize the app with the extension
-db = SQLAlchemy(app)
+db.init_app(app)
 
 
 class Todolist(db.Model):
@@ -27,6 +37,13 @@ with app.app_context():
 
 @app.route("/")
 def defaultPage():
+    todo = Todolist(
+        task="Complete the assignment",
+        desc="finish the javascript assignment by Aug 20th 2024",
+    )
+    db.session.add(Todolist)
+    db.session.commit()
+
     return render_template("index.html")
 
 
