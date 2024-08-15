@@ -50,9 +50,10 @@ create a root folder and run
 >pip install virtualenv
 >virtualenv venv
 .\venv\Scripts\activate.ps1 
->pip install flask
+>pip install flask flask-sqlalchemy
 
 create a app.py file and place the following code in it
+
 
 from flask import Flask
 

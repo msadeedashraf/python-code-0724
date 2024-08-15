@@ -1,16 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy  # ORM
 from datetime import datetime
-from sqlalchemy import Integer, String
-from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy.orm import DeclarativeBase
 
-
-class Base(DeclarativeBase):
-    pass
-
-
-db = SQLAlchemy(model_class=Base)
 
 # create the app
 app = Flask(__name__)
@@ -18,7 +9,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///todolist.db"
 
 # initialize the app with the extension
-db.init_app(app)
+db = SQLAlchemy(app)
 
 
 class Todolist(db.Model):
@@ -29,10 +20,6 @@ class Todolist(db.Model):
 
     def __repr__(self) -> str:
         return f"{self.taskid} - {self.task}"
-
-
-with app.app_context():
-    db.create_all()
 
 
 @app.route("/")
@@ -48,4 +35,5 @@ def defaultPage():
 
 
 if __name__ == "__main__":
+    db.create_all()
     app.run(debug=True)
