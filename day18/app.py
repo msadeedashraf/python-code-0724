@@ -1,9 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-
+mytask = ""
+mydesc = ""
 # Configure the SQLite database
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///todo.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -21,14 +22,21 @@ class Todolist(db.Model):
     #     return f"{self.taskid} - {self.task} - {self.desc}"
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def hello_world():
-    todo = Todolist(task="reading a book", desc="Dotcom Secrets")
-    db.session.add(todo)
-    db.session.commit()
+
+    if request.method == "POST":
+        # print("Checking the postback")
+        # print(request.form["task"])
+        # print(mytask = request.form["task"]
+        mytask = request.form["task"]
+        mydesc = request.form["desc"]
+        todo = Todolist(task=mytask, desc=mydesc)
+        db.session.add(todo)
+        db.session.commit()
+
     myalltodolist = Todolist.query.all()
-    # print(myalltodolist)
-    # return "<p>Hello, World!</p>"
+
     return render_template("index.html", myalltodolist=myalltodolist)
 
 
@@ -37,6 +45,20 @@ def gettodo():
     myalltodolist = Todolist.query.all()
     print(myalltodolist)
     return "<p>Get All To Dos</p>"
+
+
+@app.route("/delete/<int:taskid>")
+def delete(taskid):
+    mytodo = Todolist.query.filter_by(taskid=taskid).first()
+    db.session.delete(mytodo)
+    db.session.commit()
+    return redirect("/")
+
+
+@app.route("/update/<int:taskid>")
+def update(taskid):
+    # mytodo = Todolist.query.filter_by(taskid=taskid).first()
+    return render_template("update.html")
 
 
 if __name__ == "__main__":
