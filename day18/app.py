@@ -55,10 +55,20 @@ def delete(taskid):
     return redirect("/")
 
 
-@app.route("/update/<int:taskid>")
+@app.route("/update/<int:taskid>", methods=["GET", "POST"])
 def update(taskid):
-    # mytodo = Todolist.query.filter_by(taskid=taskid).first()
-    return render_template("update.html")
+    if request.method == "POST":
+        mytask = request.form["task"]
+        mydesc = request.form["desc"]
+        mytodo = Todolist.query.filter_by(taskid=taskid).first()
+        mytodo.task = mytask
+        mytodo.desc = mydesc
+        db.session.add(mytodo)
+        db.session.commit()
+        return redirect("/")
+
+    mytodo = Todolist.query.filter_by(taskid=taskid).first()
+    return render_template("update.html", mytodo=mytodo)
 
 
 if __name__ == "__main__":
