@@ -1,0 +1,1 @@
+we installed sql server and imported the adventure works and completed weather app.

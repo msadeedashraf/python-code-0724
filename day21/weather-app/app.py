@@ -14,7 +14,14 @@ def get_weather():
     # city = "toronto"
     city = request.args.get("city")
 
+    if not bool(city.strip()):
+        city = "toronto"
+
     weather_data = get_my_weather(city)
+
+    if not weather_data["cod"] == 200:
+        return render_template("error_page.html")
+
     return render_template(
         "weather.html",
         title=weather_data["name"],
