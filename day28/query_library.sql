@@ -1,4 +1,6 @@
 --Create the database name Library
+CREATE DATABASE Library
+
 
 use Library
 
