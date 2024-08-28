@@ -1,3 +1,5 @@
+--Create the database name Library
+
 use Library
 
 /*drop table Users
@@ -6,6 +8,8 @@ drop table Books
 drop table BookCategories
 drop table BorrowedBooks
 */
+
+delete
 
 -- Create Users Table
 -- Create Users Table
