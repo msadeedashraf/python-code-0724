@@ -76,5 +76,15 @@ save and run
 
 >pip install flask-sqlalchemy
 
-SQL Lite viewer
-https://inloop.github.io/sqlite-viewer/
+[SQL Lite viewer](https://inloop.github.io/sqlite-viewer/)
+
+[Get Started Querying with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/)
+
+
+[AdventureWorks sample databases](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms)
+
+[Restore a Database Backup Using SSMS](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16 )
+
+[Quickstart: Backup and restore a SQL Server database with SSMS](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/quickstart-backup-restore-database?view=sql-server-ver16&tabs=ssms)
+
+
